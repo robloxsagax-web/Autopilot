@@ -369,7 +369,7 @@ graph TD
 | Layer | Technologies |
 |---|---|
 | **Language** | TypeScript (strict), ESM |
-| **Runtime / Tooling** | Bun ≥ 1.0, Node ≥  ̂18, pnpm workspaces |
+| **Runtime / Tooling** | Bun ≥ 1.0, Node ≥  18, pnpm workspaces |
 | **Backend** | Express 4, Socket.IO 4, Helmet, CORS, Vercel AI SDK, @ai-sdk/{openai,anthropic,google}, @openrouter/ai-sdk-provider, ollama-ai-provider |
 | **Sandbox execution** | child_process spawn with timeouts, isolated workspaces, auto npm / pip installs |
 | **Database** | SQLite via bun:sqlite (sessions,messages,tool_calls with indexes) |
