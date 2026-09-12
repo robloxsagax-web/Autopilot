@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="autopilot.png" alt="Autopilot Logo" width="120" height="120">
+  <img src="autopilot.svg" alt="Autopilot Logo" width="120" height="120">
 
   <h1 align="center">🤖 Autopilot</h1>
 
