@@ -1,40 +1,12 @@
 <div align="center">
 
-<style>
-  @keyframes t-float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-  @keyframes t-glow { 0%,100% { box-shadow: 0 0 18px rgba(96,165,250,.45), 0 0 42px rgba(168,85,247,.2); } 50% { box-shadow: 0 0 30px rgba(96,165,250,.75), 0 0 70px rgba(168,85,247,.4); } }
-  @keyframes t-slide { 0% { opacity: 0; transform: translateY(22px); } 100% { opacity: 1; transform: translateY(0); } }
-  @keyframes t-pulse { 0%,100% { opacity: 1; } 50% { opacity: .45; } }
-  @keyframes t-gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } } }
+  <img src="terminator.png" alt="Terminator Logo" width="120" height="120">
 
-  .t-orbit { animation: t-glow 3.5s ease-in-out infinite; border-radius:32px; }
-  .t-logo { animation: t-float 3.5s ease-in-out infinite; }
-  .t-title { background:linear-gradient(90deg,#60a5fa,#a855f7,#ec4899,#a855f7,#60a5fa); background-size:400% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation: t-gradient 6s ease infinite; }
-  .t-fade { animation: t-slide .7s ease both; }
-  .t-fade-1 { animation: t-slide .7s ease .15s both; }
-  .t-fade-2 { animation: t-slide .7s ease .3s both; }
-  .t-fade-3 { animation: t-slide .7s ease .45s both; }
-  .t-fade-4 { animation: t-slide .7s ease .6s both; }
-  .t-blink { animation: t-pulse 1.8s ease-in-out infinite; }
-  .t-num { display:inline-block; animation: t-float 2.6s ease-in-out infinite; }
-  .t-chip { display:inline-block; padding:.18rem .65rem; margin:.12rem; border-radius:999px; font-size:.8rem; background:rgba(96,165,250,.12); border:1px solid rgba(96,165,250,.35); color:#60a5fa; }
-  .t-chip.p { background:rgba(168,85,247,.12); border-color:rgba(168,85,247,.4); color:#c084fc; }
-  .t-chip.g { background:rgba(52,211,153,.1); border-color:rgba(52,211,153,.35); color:#34d399; }
-  .t-chip.y { background:rgba(251,191,36,.1); border-color:rgba(251,191,36,.4); color:#fbbf24; }
-  .t-center{ text-align:center; }
-</style>
+  <h1 align="center">🤖 Terminator</h1>
 
-  <div class="t-orbit"><img class="t-logo" src="terminator.png" alt="Terminator Logo" width="128" height="128"></div>
-
-  <h1 class="t-title" align="center" style="font-size:3rem;font-weight:800;margin:.4rem 0 .2rem;">Terminator</h1>
-
-  <p align="center" style="font-size:1.15rem;color:#94a3b8;margin-top:.2rem;">
-    <b style="color:#e2e8f0;">The AI Automated Software Engineering Platform</b><br/>
-    One agent that <b class="t-blink" style="color:#60a5fa;">researches</b> ·
-    <b class="t-blink" style="color:#c084fc;animation-delay:.3s;">browses</b> ·
-    <b class="t-blink" style="color:#34d399;animation-delay:.6s;">writes code</b> ·
-    <b class="t-blink" style="color:#fbbf24;animation-delay:.9s;">generates files</b> ·
-    <b class="t-blink" style="color:#f87171;animation-delay:1.2s;">ships work</b> — end to end.
+  <p align="center">
+    <b>The AI Automated Software Engineering Platform</b><br/>
+    One agent that researches · browses · writes code · generates files · ships work — end to end.
   </p>
 
   <p align="center">
@@ -71,265 +43,237 @@
 
 ## 📖 Table of Contents
 
-- [What Is Terminator?](#-what-is-terminator)
-- [The Problem We Are Solving](#-the-problem-we-are-solving)
-- [Why We Built This — The Origin Story](#-why-we-built-this--the-origin-story)
-- [How We Built It — The Engineering Story](#-how-we-built-it--the-engineering-story)
-- [The "Best Automated Software Engineering" Case](#-the-best-automated-software-engineering-case)
-- [✨ The Best of What's Inside](#-the-best-of-whats-inside)
-- [🏗️ Architecture](#️-architecture)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [🚀 Getting Started](#-getting-started)
-- [🧠 AI Providers](#-ai-providers)
-- [⚙️ Configuration Reference](#️-configuration-reference)
-- [🐳 Docker Deployment](#-docker-deployment)
-- [💾 Compile to a Standalone Binary](#-compile-to-a-standalone-binary)
-- [📦 NPM Scripts](#-npm-scripts)
-- [🗂️ Project Structure](#️-project-structure)
-- [🔌 API Overview](#-api-overview)
-- [📚 Documentation](#-documentation)
-- [🗺️ Roadmap](#️-roadmap)
-- [⚖️ License](#️-license)
-
+- [What Is Terminator?](#what-is-terminator)
+- [The Problem We Are Solving](#the-problem-we-are-solving)
+- [Why We Built This — The Origin Story](#why-we-built-this---the-origin-story)
+- [How We Built It — The Engineering Story](#how-we-built-it---the-engineering-story)
+- [The "Best Automated Software Engineering" Case](#the-best-automated-software-engineering-case)
+- [The Best of What's Inside](#the-best-of-whats-inside)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [AI Providers](#ai-providers)
+- [Configuration Reference](#configuration-reference)
+- [Docker Deployment](#docker-deployment)
+- [Compile to a Standalone Binary](#compile-to-a-standalone-binary)
+- [NPM Scripts](#npm-scripts)
+- [Project Structure](#project-structure)
+- [API Overview](#api-overview)
+- [Documentation](#documentation)
+- [Roadmap](#roadmap)
+- [License](#license)
 
 ---
 
 ## 🔍 What Is Terminator?
 
-<div class="t-fade">
+> **Terminator is an open-source, self-hosted AI software-engineering copilot.** It fuses a multi-agent reasoning system, a sandboxed code execution engine, a vision-capable browser automation layer, deep web research, and a cinematic "film strip" tool-result workspace into a single web application. One natural-language request can turn into working code, a compiled PDF, a researched report, or a completed browser task — all inside one session.
 
-> **Terminator is an open-source, self-hosted AI software-engineering copilot.** It fuses a multi-agent reasoning system,a sandboxed code execution engine,a vision-capable browser automation layer,deep web research,and a cinematic "film strip" tool-result workspace into a single web application — so one natural-language request can turn into working code,a compiled PDF,a researched report,or a completed browser task,all inside one session..
 
-</div>
 
 ![Demo](demo.gif)
 
-<div class="t-fade t-fade-1">
-
-### The shortest description
+###The shortest description
 
 | Term | Does |
 |---|---|
-| 🧠 **Agent orchestration** | A `multi_agent` brain that picks the right specialist(CodeAct,DeepResearch) per task and can coordinate them |
-| ⚡ **CodeAct engine** | Run real **JavaScript / Node.js,Python,and Shell** in isolated sandboxes with one-line dependency management(`npm` / `pip`and persisted memory) |
-| 🔬 **DeepResearch engine** | Plan-and-execute research across DuckDuckGo/Google/Bing with source tracking,insight extraction,and auto-generated reports |
-| 🌐 **Browser automation(MCP)** | Full vision-capable browser control via Model Context Protocol servers(`browser`,filesystem,memory,…`) — click,type,drag,hover,wait,extract,screenshot |
+| 🧠 **Agent orchestration** | A `multi_agent` brain that picks the right specialist (CodeAct, DeepResearch) per task and can coordinate them |
+| ⚡ **CodeAct engine** | Run real **JavaScript / Node.js, Python, and Shell** in isolated sandboxes with one-line dependency management (`npm` / `pip`and persisted memory) |
+| 🔬 **DeepResearch engine** | Plan-and-execute research across DuckDuckGo/Google/Bing with source tracking, insight extraction,and auto-generated reports |
+| 🌐 **Browser automation(MCP)** | Full vision-capable browser control via Model Context Protocol servers (`browser`, filesystem, memory,…`) — click, type, drag, hover, wait, extract,screenshot |
 | 📄 **LaTeX PDF pipeline** | Turn plain LaTeX into a downloadable/inline-rendered PDF with zero extra tooling |
 | 🎞️ **Session replay** | Every tool call is recorded into a film-strip timeline — scrub back,replay,and export a full self-contained **HTML replay** |
-| ⚡ **Real-time UX** | Streaming tokens via **Socket.IO + SSE**,file attachments,dark mode,glassmorphism UI,Monaco editor,Framer Motion |
+| ⚡ **Real-time UX** | Streaming tokens via **Socket.IO + SSE**, file attachments,dark mode,glassmorphism UI,Monaco editor,Framer Motion |
 
-</div>
 
 ---
 
 ## ❗ The Problem We Are Solving
 
-<div class="t-fade t-fade-2">
+Every student, hackathon team,and startup engineer hits the same wall. The software-engineering loop is **broken across ten disconnected tools**:
 
-Every student,hackathon team,and startup engineer hits the same wall. The software-engineering loop is **broken across ten disconnected tools**:
-
-</div>
-
-<div align="center">
-
-| # | 🧩 Problem | 💥 What hurts | 🤖 How Terminator fixes it |
+| # | Problem | What hurts | How Terminator fixes it |
 |---|---|---|---|
-| <span class="t-num">1</span> | **Agents talk,but they don't *do*** | Chatbots stop atthe text — no files written,no code run,no artifacts produced | Every capability is a **tool that executes** and streams its real result back — web pages fetched,code compiled,PDFs generated |
-| <span class="t-num">2</span> | **Running AI code is dangerous & annoying** | Copy-paste into a terminal,guess dependencies,pollute your machine | **Sandboxed workspace** with path-traversal guards,dangerous-command blocking,per-language isolation(node/ python/ shell),auto dependency install,timeouts,real-time output streaming |
-| <span class="t-num">3</span> | **Research is shallow & unverifiable** | One hallucinated paragraph,no sources,no structure | **Plan-and-execute research loop**:structured plans,multi-engine searches with domain filters,multi-source visits,insight extraction,source tracking,image collection,cited reports(Markdown/HTML/JSON) |
-| <span class="t-num">4</span> | **Browsers are the real computer interface — but brittle** | Scraping breaks,headless automation opaque,fragile selectors | **Vision-capable browser control via MCP** — visual steps with screenshots&mouse overlays,reconnect/backoff,health checks,dynamic tool discovery |
-| <span class="t-num">5</span> | **You can't see what the agent is doing** | Black-box agents feel untrustworthy — judges&users can't verify work | **Film-strip Workspace panel** renders every tool result as a contextual card behind playback controls;export **standalone HTML replays** for demos&judges |
-| <span class="t-num">6</span> | **Deploying AI software is a pain** | Runtimes,dependencies,browser binaries,secrets in `ps` | Ships as a **single compiled Bun binary**(Linux/macOS/Windows),a **Docker WebTop desktop app**,and `start-server.sh` that feeds API keys via stdin — secrets never appear in process listings |
-
-</div>
-
-<div class="t-fade t-fade-3">
+| 1 | **Agents talk, but they don't *do*** | Chatbots stop at the text — no files written, no code run, no artifacts produced | Every capability is a **tool that executes** and streams its real result back — web pages fetched, code compiled,PDFs generated |
+| 2 | **Running AI code is dangerous** | Copy-paste into a terminal, guess dependencies,pollute your machine | **Sandboxed workspace** with path-traversal guards,dangerous-command blocking,per-language isolation,auto dependency install,timeouts,real-time streamed output |
+| 3 | **Research is shallow & unverifiable** | One hallucinated paragraph,no sources,no structure | **Plan-and-execute research loop**:structured plans,multi-engine searches with domain filters,multi-source visits,insight extraction,source tracking,cited reports |
+| 4 | **Browsers are the real computer interface — but brittle** | Scraping breaks,headless automation opaque,fragile selectors | **Vision-capable browser control via MCP** — visual steps with screenshots&mouse overlays,reconnect/backoff,health checks |
+| 5 | **You can't see what the agent is doing** | Black-box agents feel untrustworthy — judges&users can't verify work | **Film-strip Workspace panel** renders every tool result as a contextual card behind playback controls;export **standalone HTML replays** for demos&judges |
+| 6 | **Deploying AI software is a pain** | Runtimes,dependencies,browser binaries,secrets in `ps` | Ships as a **single compiled Bun binary**,a **Docker WebTop desktop app**,and `start-server.sh` that feeds API keys via stdin |
 
 ###So — the problem,in one breath:
 
-> **Software-engineeringwith AI shouldn't be a scavenger hunt across ten tools. It should be one self-hosted platform where an agent does the *whole* engineering loop — plan,search,browse,write,execute,generate artifacts,and replay it all — transparently,and verifiably.**
-
-</div>
+> **Software-engineeringwith AI shouldn't be a scavenger hunt across ten tools. It should be one self-hosted platform where an agent does the *whole* engineering loop — plan, search, browse, write, execute,generate artifacts,and replay it all — transparently,and verifiably.**
 
 ---
 
 ## 🌱 Why We Built This — The Origin Story
 
-<div class="t-fade t-fade-4">
+We kept watching the same pattern repeat:brilliant ideas stalled at the gap between *"The model knows how"* and *"The computer did it"*. Frameworks demos stopped at chat bubbles. Engineering is **effects** — files created,processes run,pages visited,artifacts shipped. Everything else is theater.
 
-We kept watching the same pattern repeat:brilliant ideas stalled at the gap between *"The model knows how"* and *"The computer did it."* Frameworks demos stopped at chat bubbles. Engineering is **effects** — files created,processes run,pages visited,artifacts shipped. Everything else is theater.
+ So we set out to build the **missing operating system for AI software engineering**:a single workspace where the model's intent becomes machine state you can see,replay,and trust. Three design convictions shaped everything:
 
- So we set out to build the **missing operating system for AI software engineering**:a single workspace wherethe model's intent becomes machine state you can see,replay,and trust. Three design convictions shaped everything:
-
-<div class="t-center">
-
-<span class="t-chip">💬 One conversation =one work session</span>
-<span class="t-chip g">🛠️ Every answer =a real executed tool</span>
-<span class="t-chip p">🎞️ Every action =a replayable film frame</span>
-<span class="t-chip y">📦 One artifact =a shippable binary</span>
-
-</div>
-
-</div>
-
+- 💬 **One conversation = one work session**
+- 🛠️ **Every answer = a real executed tool**
+- 🎞️ **Every action = a replayable film frame**
+- 📦 **One artifact = a shippable binary**
 
 ---
 
 ## 🛠️ How We Built It — The Engineering Story
 
-<div class="t-fade">
-
 Building a platform where an LLM can safely *drive a computer* meant solving eight hard engineering problems. Here's the honest breakdown:
-
-</div>
 
 ###1️⃣ Agent orchestration — the brain that delegates
 
-We didn't want one generic agent failing at everything. `AgentTARS.ts` defines **agent archetypes** with explicit capability maps(`AGENT_CAPABILITIES`)and specialization lists. A `select_agent` tool classifies every incoming task by keywords and picks the best specialist; `switch_agent` preserves conversation context;and `coordinate_agents` builds a **dependency-graph execution order**(topological-sort-with-cycle-fallback)so subtasks run in the right sequence even with dependencies. Result:one assistant that *looks* general but internally routes to specialists — exactly how a real engineering team operates..
+We didn't want one generic agent failing at everything. `AgentTARS.ts` defines **agent archetypes** with explicit capability maps(`AGENT_CAPABILITIES`)and specialization lists. A `select_agent` tool classifies every incoming task by keywords and picks the best specialist; `switch_agent` preserves conversation context;and `coordinate_agents` builds a **dependency-graph execution order** so subtasks run in the right sequence even with dependencies. Result:one assistant that *looks* general but internally routes to specialists — exactly how a real engineering team operates.
 
 ###2️⃣ The CodeAct sandbox — safe,real execution
 
 The riskiest part of letting an LLM "run code" is trust. Our design remade this as a **sandboxed subprocess service**:
 
 - **Per-language isolation**: separate `node/`, `python/`, `shell/` workspaces inside a `CODEACT_WORKSPACE`.
-- **Just-in-time dependencies**: `npm install pkg` / `pip install pkg` before execution,with longer install timeouts(60s..
-- **Hard guards**: dangerous-command blacklist(`rm -rf /`, `dd`, `fork bombs`…),timeouts with SIGTERM→SIGKILL escalation,exit codes,duration metadata..
-- **Persistent memory**:a key/value store keyed by name(`codeact_memory`)so the agent remembers scripts,data,and outputs across turns —the beginning of an agent-native filesystem..
+- **Just-in-time dependencies**: `npm install pkg` / `pip install pkg` before execution,with longer install timeouts.
+- **Hard guards**: dangerous-command blacklist(`rm -rf /`, `dd`, `fork bombs`…),timeouts with SIGTERM→SIGKILL escalation,exit codes,duration metadata.
+- **Persistent memory**:a key/value store keyed by name so the agent remembers scripts,data,and outputs across turns —the beginning of an agent-native filesystem.
 
 ###3️⃣ DeepResearch — verify,don't hallucinate
 
-We replaced single-shot "answer generation" with a **plan-and-execute research protocol**(`research_plan` → `search` → `visit_link`/`deep_dive` → `report_generator`):
+We replaced single-shot "answer generation" with a **plan-and-execute research protocol**:
 
-- Multi-engine search(DuckDuckGo,Google,Bing with `site:` filters&`-site:` exclusions,and relevance scoring..
-- `deep_dive` visits top sources(filtered by relevance >0.5),extracts insights **by focus area**,tracks every URL,and dedupes insights..
-- `report_generator` assembles a cited reportin Markdown,HTML,or JSON —with metadata(sources visited,images collected,generation time..
-- Research sessions are first-class citizens:`session_manager` lists,inspects,and deletes them with live stats..
+- Multi-engine search(DuckDuckGo,Google,Bing)with `site:` filters,and `-site:` exclusions,and relevance scoring.
+- `deep_dive` visits top sources,extracts insights **by focus area**,tracks every URL,and dedupes insights.
+- `report_generator` assembles a cited reportin Markdown,HTML,or JSON —with metadata(sources visited,images collected,generation time.
+- Research sessions are first-class citizens:`session_manager` lists,inspects,and deletes them with live stats.
+
 
 ###4️⃣ MCP browser layer — vision-grade web automation without the pain
 
-Rather than hand-rolling fragile selectors,we built on the **Model Context Protocol** —the open standard rushing through the industry. `MCPManager` handles the full connection lifecycle:stdio transport,exponential-backoff reconnects,,retry caps,per-server timeouts,,health checks,and a config kill-switch.. The bundled default — `@agent-infra/mcp-server-browser@1.2.17 --vision` — gives the agent **vision-based** browser control.. Because MCP tools plug into the same Zod-validated tool registry,the agent seamlessly mixes browser actions with code execution,and research in one plan..
+Ra ther than hand-rolling fragile selectors,we built on the **Model Context Protocol**,the open standard rushing through the industry. `MCPManager` handles the full connection lifecycle:stdio transport,exponential-backoff reconnects,retry caps,per-server timeouts,health checks,and a config kill-switch. The bundled default — `@agent-infra/mcp-server-browser --vision` — gives the agent **vision-based** browser control. Because MCP tools plug into the same Zod-validated tool registry,the agent seamlessly mixes browser actions with code execution,and research in one plan.
 
 ###5️⃣ Replay engine — every tool call becomes film
 
-Engineers trust what they can *watch happen*. `SocketService` records a timestamped event stream per session(`user_message`, `assistant_thinking`, `assistant_message`, `tool_call`).. That stream powers:
+Engineers trust what they can *watch happen*. `SocketService` records a timestamped event stream per session(`user_message`, `assistant_thinking`, `assistant_message`, `tool_call`). That stream powers:
 
 - the **film-strip Workspace panel** — every tool result becomes a frame with a dedicated renderer;
-- **`GET /api/replay/sessions/:id/replay`** — JSON timeline;
-- **`GET /api/replay/sessions/:id/export`** — a **self-contained HTML replay** with an embedded React+Tailwind timeline you can download,send to a judge,or demo offline..
+- **`GET /api/replay/sessions/:id/replay`** — a JSON timeline;
+
+- **`GET /api/replay/sessions/:id/export`** — a **self-contained HTML replay** with an embedded React+Tailwind timeline you can download,send to a judge,or demo offline.
 
 ###6️⃣ Streaming UX — latency is a feature to design for
 
-LLM generation is slow,so slow is death.. We built a dual streaming path:**Socket.IO** events(`message_chunk`, `tool_result`, `assistant_thinking`…))for the web app,and **SSE**(`text/event-stream`)for the REST API.. Tokens stream,tool results stream,even the *thinking state* streams as animated dots.. The chat input shows a gradient focus ring whilethe agent works;the connection banner surfaces disconnects immediately.. It feels alive because it *is* alive — every frame of the agent's work arrives the moment it happens..
+LLM generation is slow,so slow is death. We built a dual streaming path:**Socket.IO** events for the web app,and **SSE** for the REST API. Tokens stream,tool results stream,even the *thinking state* streams as animated dots. It feels alive because it *is* alive — every frame of the agent's work arrives the moment it happens.
 
 ###7️⃣ SQLite persistence — sessions,messages,tool calls
 
-Conversations are worthless if they vanish on restart.. `DatabaseService` models three tables(`sessions`, `messages`, `tool_calls` with FK cascade deletes),four indexes(`session_id`, `timestamp`, `message_id`, `updated_at`),and `SessionService` layers a memory cache on top with auto-generated titles from the first user message.. Sessions survive restarts,replays survive sessions,andthe sidebar instantly regroups them by **Today / Yesterday / This Week**..
+Conversations are worthless if they vanish on restart. `DatabaseService` models three tables(`sessions`, `messages`, `tool_calls`with FK cascade deletes),four indexes,and `SessionService` layers a memory cache on top with auto-generated titles from the first user message. Sessions survive restarts,and the sidebar instantly regroups them by **Today / Yesterday / This Week**.
 
 ###8️⃣ Ship it everywhere — binary,Docker,CI
 
-"Works on my machine" wasn't acceptable.. Three deployment stories:
+"Works on my machine" wasn't acceptable. Three deployment stories:
 
-- **Standalone binary**: `bun build --compile` embeds the entire backend into one executable per target(Linux x64/arm64,macOS x64/arm64,Windows x64.. No Node.js install required..
-- **Docker WebTop**:the `docker-compose.yml` spins up a full **Linux desktop in the browser**(KDE)with Terminator installed as a desktop app + Chromium preinstalled for MCP browser tools(headroom via `shm_size: "1gb"`).
-- **CI release pipeline**: `.github/workflows/release.yml` fires on every `main` push — builds the frontend,compiles **4 binaries** ona matrix,tars the frontend,and attaches everything to an auto-incremented `v<N>` GitHub Release.. Push to main = software released..
+- **Standalone binary**: `bun build --compile` embeds the entire backend into one executable per target. No Node.js install required.
+- **Docker WebTop**:the `docker-compose.yml` spins up a full **Linux desktop in the browser**(KDE)with Terminator installed as a desktop app + Chromium preinstalled for MCP browser tools.
+- **CI release pipeline**: `.github/workflows/release.yml` fires on every `main` push — builds the frontend,compiles **4 binaries** ona matrix,and attaches them to an auto-incremented GitHub Release. Push to main = software released.
 
-###The hard-won lessons(what we'd tell the next builder)
+###The hard-won lessons
 
-<div class="t-center">
-
-<span class="t-chip">🤖 Give agents a filesystem,not just a prompt</span>
-<span class="t-chip g">🛡️ Trust is engineered:sandbox,blacklist,validate</span>
-<span class="t-chip p">🎞️ Replayability is what makes AI feel *safe*</span>
-<span class="t-chip y">📦 Compile everything — deployment is UX too</span>
-
-</div>
-
+- 🤖 **Give agents a filesystem,not just a prompt**
+- 🛡️ **Trust is engineered:sandbox,blacklist,validate**
+- 🎞️ **Replayability is what makes AI feel *safe***
+- 📦 **Compile everything — deployment is UX too**
 
 ---
 
 ## 🏆 The "Best Automated Software Engineering" Case
 
-<div class="t-fade">
-
 Judges ask three questions:**Substance, Execution, Business.** Here's how Terminator answers each — by design,not by accident:
 
-</div>
-
-###🧭 Substance — the problem is real,and the attempt is deep
+###Substance — real problem,deep attempt
 
 | Criterion | Terminator's answer |
 |---|---|
-| **Strength of problem** | The AI-engineering gap:models reason but can't *do*. We scaffolded the missing **effects layer** — sandboxed execution,real browser control,artifact generation.. |
-| **Originality** | Not a chatbot wrapper:,a **multi-agent orchestration + tool-execution + replay workspace** —the "film strip" timeline you can scrub,and export as HTML is something you won't find in template hackathon projects.. |
-| **Technical depth** | Eight hard systems in one repo:agent selection&coordination,,sandboxed languages w/ auto-deps,,plan-and-execute research,,MCP lifecycle mgr,,replay engine,,dual streaming(Socket.IO+SSE),,SQLite schema design,,multi-target compile+CI releases.. |
+| **Strength of problem** | The AI-engineering gap:models reason but can't *do*. We scaffolded the missing **effects layer** — sandboxed execution,real browser control,artifact generation. |
+| **Originality** | Not a chatbot wrapper:,a **multi-agent orchestration + tool-execution + replay workspace** —the "film strip" timeline you can scrub,and export as HTML |
+| **Technical depth** | Eight hard systems in one repo:agent selection&coordination,sandboxed languages w/ auto-deps,plan-and-execute research,MCP lifecycle mgr,replay engine,dual streaming,SQLite schema design,multi-target compile+CI releases. |
 
-###⚙️ Execution — quality of build & UX
-
-| Criterion | Terminator's answer |
-|---|---|
-| **Functionality** | It *does* things:runs Node/Python/Shell,browseswith vision,researches w/ citations,generates PDFs — all streamed live into a three-panel IDE-like workspace.. |
-| **Implementation** | TypeScript strict throughout;every tool parameter **Zod-validated**;path-traversal guards;dangerous-command blacklists;CSP via Helmet;graceful shutdown;error handlers as Express middleware.. |
-| **UX & demonstration** | Animated feedback(thinking dots,gradient focus ring,,connection banner),dark/light themes,Monaco editor,film-strip playback w/ speed control,and **one-click HTML replay export** — a built-in demo delivery mechanism for judges.. |
-
-###💼 Business — why it matters in the real world
+###Execution — quality of build & UX
 
 | Criterion | Terminator's answer |
 |---|---|
-| **Target user** | Students automating homework pipelines,,hackathon teams needing a research+code copilot,,indie hackers shipping scripts,,anyone who wants a self-hosted agentthat actually *does work* on their own machine/data.. |
-| **Real-world potential** | An **open platform with pluggable MCP servers** — today browser;tomorrow GitHub,,Slack,Postgres,Kubernetes(all standard MCP servers).. The same architecture scales from local hacking to production automation.. |
-| **Why it matters** | As agents get smarter,the bottleneck shifts from *reasoning quality* to *safe,observable,effectful action*. Terminator is a working answer to that bottleneck —and it runs anywhere(binary,Docker,desktop.. |
+| **Functionality** | It *does* things:runs Node/Python/Shell,browseswith vision,researches w/ citations,generates PDFs — all streamed live into a three-panel IDE-like workspace. |
+| **Implementation** | TypeScript strict throughout;every tool parameter **Zod-validated**;path-traversal guards;dangerous-command blacklists;CSP via Helmet;graceful shutdown;error handlers. |
+| **UX & demonstration** | Thinking dots,gradient focus ring,connection banner,dark/light themes,Monaco editor,film-strip playback w/ speed control,and **one-click HTML replay export** — a built-in demo delivery mechanism. |
+
+###Business — why it matters in the real world
+
+| Criterion | Terminator's answer |
+|---|---|
+| **Target user** | Students automating homework,hackathon teams needing a research+code copilot,indie hackers shipping scripts,anyone who wants a self-hosted agentthat actually *does work* on their own machine. |
+| **Real-world potential** | An **open platform with pluggable MCP servers** — today browser;tomorrow GitHub,Slack,Postgres,Kubernetes. The same architecture scales from local hacking to production automation. |
+| **Why it matters** | As agents get smarter,the bottleneck shifts from *reasoning quality* to *safe,observable,effectful action*. Terminator is a working answer to that bottleneck — and it runs anywhere(binary,Docker,desktop. |
 
 ---
 
 ## 🌟 The Best of What's Inside
 
-### 🧠 Multi-Agent Orchestration(`AgentTARS`)
-- Three agent archetypes:**AI Assistant**(all tools),**CodeAct Agent**(sandboxed code),**DeepResearch Agent**(plan-and-execute research..
+###🧠 Multi-Agent Orchestration
+
+- Three agent archetypes:**AI Assistant**(all tools),**CodeAct Agent**(sandboxed code),**DeepResearch Agent**(plan-and-execute research.
 - Automatic agent selection by task keywords,plus explicit tools to `select_agent`, `list_agents`, `switch_agent`(with context preservation),and `coordinate_agents`(dependency-graph execution ordering for sequential/parallel/dependency modes).
 
-### ⚡ CodeAct Sandbox(`CodeActAgent`)
+###⚡ CodeAct Sandbox
+
 ```ts
 node_codeact:   run Node.js/JS  + `npm install` deps
 python_codeact: run Python       + `pip install` packages
 shell_codeact:  run bash/sh/zsh  + dangerous-command blocking
 codeact_memory: persistent key/value memory across sessions
 ```
-- Real-time stdout/stderr streaming,timeouts,exit codes,duration metadata,auto-installed dependencies,,isolated per-language workspaces,and Monaco-based renderer with copy buttons..
 
-### 🔬 DeepResearch Engine(`DeepResearchAgent`)
-- `research_plan`:create/update/get research plans&sessions..
-- `search`:DuckDuckGo/Google/Bing with domain `site:` filters,and `-site:` exclusions,relevance scoring,instant-answer support..
-- `visit_link` / `deep_dive`:multi-source analysis with focus-area insight extraction,and URL deduplication..
-- `report_generator`:**Markdown / HTML / JSON** reports from collected sources+images..
-- `session_manager`:list / inspect / delete research sessions with stats(URLs visited,collections,images..)..
+- Real-time stdout/stderr streaming,timeouts,exit codes,duration metadata,auto-installed dependencies,isolated per-language workspaces,and Monaco-based renderer with copy buttons.
 
-### 🌐 Vision-Capable Browser Automation(MCP)
-- Driven by the **Model Context Protocol** — connect any MCP server(stdio;SSE planned..
-- Bundled default:`@agent-infra/mcp-server-browser@1.2.17 --vision`.
-- **21+ specialized renderers** for browser results:click/double-click/right-click,hover,drag&drop,form fill/type,wait,extract/text/links/clickable-elements — each shown as a visual step..
+###🔬 DeepResearch Engine
 
-### 🛠️ General Toolkit
-- `web_search`(enhanced), `visit_link`(readability-extracted content via Turndown/Mozilla Readability), `file_read` / `list_files` / `create_directory`(sandboxed workspace), `execute_command`(shell selection,timeouts,security blocks), `generate_latex_pdf`(compiles `pdflatex` → PDF served at `/api/pdf/:name`)..
+- `research_plan`:create/update/get research plans&sessions.
+- `search`:DuckDuckGo/Google/Bing with domain `site:` filters,and `-site:` exclusions,relevance scoring,instant-answer support.
+- `visit_link` / `deep_dive`:multi-source analysis with focus-area insight extraction,and URL deduplication.
+- `report_generator`:**Markdown / HTML / JSON** reports from collected sources+images.
+- `session_manager`:list / inspect / delete research sessions with stats.
 
-### 🎛️ Live IDE-Like Workspace Panel
-- Three-panel layout:**Recent Tasks sidebar**(grouped Today / Yesterday / This Week,search,delete),**Chat**(streaming markdown,syntax-highlighted code blocks,token counts,copy),**Workspace/Computer**(film-strip timeline of tool results with playback controls,per-frame renderers..
-- Gradient focus border on input,animated thinking dots,connection status banner,one-click **Export Replay**..
+###🌐 Vision-Capable Browser Automation(MCP)
 
-### 📼 Session Replay&Export
-- Every `user_message`, `assistant_thinking`, `assistant_message`,and `tool_call` is recorded per session..
-- Replay API:`GET /api/replay/sessions/:id/replay`(JSON)and `/export`(self-contained HTML with embedded data+timeline UI)..
-- Sessions persist in **SQLite**(`data/sessions.db`)with indexes on session/message/tool-call,and cascade deletes.. Auto-generated titles from first message..
+- Driven by the **Model Context Protocol** — connect any MCP server;
+- Bundled default:`@agent-infra/mcp-server-browser --vision`.
+- **21+ specialized renderers** for browser results:click/double-click/right-click,hover,drag&drop,form fill/type,wait,extract/text/links/clickable-elements — each shown as a visual step.
 
-### 🛡️ Security-First Design
+###🛠️ General Toolkit
+
+- `web_search`(enhanced), `visit_link`(readability-extracted content via Turndown/Mozilla Readability), `file_read` / `list_files` / `create_directory`(sandboxed workspace), `execute_command`(shell selection,timeouts,security blocks), `generate_latex_pdf`(compiles `pdflatex` → PDF served at `/api/pdf/:name`).
+
+###🎛️ Live IDE-Like Workspace Panel
+
+- Three-panel layout:**Recent Tasks sidebar**,**Chat**,**Workspace/Computer**(film-strip timeline of tool results with playback controls,per-frame renderers.
+- Gradient focus border on input,animated thinking dots,connection status banner,one-click **Export Replay**.
+
+###📼 Session Replay&Export
+
+- Every `user_message`, `assistant_thinking`, `assistant_message`,and `tool_call` is recorded per session.
+- Replay API:`GET /api/replay/sessions/:id/replay`(JSON)and `/export`(self-contained HTML with embedded data+timeline UI).
+- Sessions persist in **SQLite**(`data/sessions.db`)with indexes on session/message/tool-call,and cascade deletes. Auto-generated titles from first message.
+
+###🛡️ Security-First Design
+
 - Path validation — no directory traversal out of `workspace/`.
 - Dangerous command blacklist(`rm -rf /`, `dd`, `mkfs`, `fork bomb`,…).
-- Helmet CSP headers+CORS allow-listing..
-- Sanitized PDF filenames(safe charset,`.pdf` enforced),403 on escape..
-- MCP connections with exponential backoff reconnect,max-retry caps,timeouts,health checks,and kill-switch(`enabled:false`).
-- `start-server.sh` feeds env vars via stdin temp file — **API keys never visiblein process listings**..
+- Helmet CSP headers+CORS allow-listing.
+- Sanitized PDF filenames,403 on escape.
+- MCP connections with exponential backoff reconnect,max-retry caps,timeouts,health checks,and kill-switch.
+- `start-server.sh` feeds env vars via stdin temp file — **API keys never visiblein process listings**.
 
-### 🎨 Modern,Polished UI
-- React 18+TypeScript+Vite+Tailwind,React Router(shareable `/sessionId` URLs,,dark/light theme with `next-themes`,Framer Motion animations,,Monaco editor,,react-markdown+GFM+rehype-highlight,glassmorphism panes,macOS traffic-light header,gradient accent system..
+###🎨 Modern,Polished UI
+
+- React 18+TypeScript+Vite+Tailwind,React Router(shareable `/sessionId` URLs,dark/light theme with `next-themes`,Framer Motion animations,Monaco editor,react-markdown+GFM+rehype-highlight,glassmorphism panes,macOS traffic-light header,gradient accent system.
 
 
 ---
@@ -357,7 +301,7 @@ flowchart LR
     T --> P[LaTeX PDF<br/>pdflatex]
     T --> F2[File System Ops<br/>sandboxed workspace]
     T -->|MCP| MCP[MCP Manager<br/>stdio transport • retries]
-    MCP --> MB[(external MCP servers<br/>browser • memory • filesystem …)]
+    MCP --> MB[(external MCP servers<br/>browser • memory • filesystem...)]
 
     B --> DB[(SQLite<br/>sessions • messages • tool_calls)]
     B --> R2[Replay Engine<br/>film-strip timeline • HTML export]
@@ -377,23 +321,23 @@ sequenceDiagram
     participant DR as DeepResearch
     participant M as MCP / Browser
 
-    U->>FS:"Research XOR,run it,print to PDF"
-    FS->>SS:send_message(+attachments)
-    SS->>SS:record replay event
-    SS->>AI:streamResponse(multi_agent)
-    AI->>T:getAllTools() → tools+orchestration
-    AI->>AI:select_agent → best fit
-    AI->>DR:research_plan → search → deep_dive
-    DR-->>AI:sources+insights
-    AI->>CA:python_codeact(pandas…)
-    CA-->>AI:stdout+exit code+duration
-    AI->>M:browser_navigate / click(MCP)
-    M-->>AI:screenshot+page state
-    AI->>T:generate_latex_pdf → worker.pdf
-    T-->>AI:PDF path+status
-    AI-->>SS:tool_result per step
-    SS-->>F:film-strip frame+new_message
-    U->>FS:Export Replay → HTML
+    U->>FS: "Research XOR, run it, print to PDF"
+    FS->>SS: send_message (+attachments)
+    SS->>SS: record replay event
+    SS->>AI: streamResponse(multi_agent)
+    AI->>T: getAllTools() → tools+orchestration
+    AI->>AI: select_agent → best fit
+    AI->>DR: research_plan → search → deep_dive
+    DR-->>AI: sources+insights
+    AI->>CA: python_codeact(pandas...)
+    CA-->>AI: stdout+exit code+duration
+    AI->>M: browser_navigate/click(MCP)
+    M-->>AI: screenshot+page state
+    AI->>T: generate_latex_pdf → worker.pdf
+    T-->>AI: PDF path+status
+    AI-->>SS: tool_result per step
+    SS-->>F: film-strip frame+new_message
+    U->>FS: Export Replay → HTML
 ```
 
 ###Repository Layout
@@ -424,17 +368,17 @@ graph TD
 
 | Layer | Technologies |
 |---|---|
-| **Language** | TypeScript(strict),ESM |
-| **Runtime / Tooling** | Bun ≥ 1.0,Node ≥ 18,pnpm workspaces |
-| **Backend** | Express 4,Socket.IO 4,Helmet,CORS,Vercel AI SDK(`ai`),@ai-sdk/{openai,anthropic,google},@openrouter/ai-sdk-provider,ollama-ai-provider |
-| **Sandbox execution** | `child_process` spawn with timeouts,isolated workspaces,auto `npm` / `pip` installs |
-| **Database** | SQLite via `bun:sqlite`(sessions,messages,tool_calls with indexes) |
-| **Research** | DuckDuckGo Instant Answer API,Mozilla Readability,Turndown(HTML→Markdown),jsdom |
-| **Browser / MCP** | `@modelcontextprotocol/sdk`, `@agent-infra/browser`,stdio transport,`puppeteer` |
-| **PDF** | `pdflatex`(LaTeX → PDF),streamed via Express |
-| **Frontend** | React 18,Vite 7,Tailwind CSS 3,Framer Motion,react-router-dom,jotai,react-markdown,react-syntax-highlighter,Monaco Editor,socket.io-client,next-themes |
+| **Language** | TypeScript (strict), ESM |
+| **Runtime / Tooling** | Bun ≥ 1.0, Node ≥  ̂18, pnpm workspaces |
+| **Backend** | Express 4, Socket.IO 4, Helmet, CORS, Vercel AI SDK, @ai-sdk/{openai,anthropic,google}, @openrouter/ai-sdk-provider, ollama-ai-provider |
+| **Sandbox execution** | child_process spawn with timeouts, isolated workspaces, auto npm / pip installs |
+| **Database** | SQLite via bun:sqlite (sessions,messages,tool_calls with indexes) |
+| **Research** | DuckDuckGo Instant Answer API, Mozilla Readability, Turndown (HTML→Markdown), jsdom |
+| **Browser / MCP** | @modelcontextprotocol/sdk, @agent-infra/browser, stdio transport, puppeteer |
+| **PDF** | pdflatex (LaTeX → PDF), streamed via Express |
+| **Frontend** | React 18, Vite 7, Tailwind CSS 3, Framer Motion, react-router-dom, jotai, react-markdown, react-syntax-highlighter, Monaco Editor, socket.io-client, next-themes |
 | **Validation** | Zod schemas on every tool parameter |
-| **Deploy** | Docker(WebTop desktop),Bun `--compile` standalone binaries,GitHub Actions release pipeline |
+| **Deploy** | Docker (WebTop desktop), Bun --compile standalone binaries, GitHub Actions release pipeline |
 
 ---
 
@@ -442,10 +386,10 @@ graph TD
 
 ###Prerequisites
 
-- **[Bun](https://bun.sh/docs/installation)** `>= 1.0`(runtime+package manager+bundler)
-- **Node.js** `>= 18`
-- **One AI provider API key**(Anthropic,OpenAI,Google,OpenRouter — ora local Ollama server)
-- *(optional)* `pdflatex` for the LaTeX PDF tool
+- **[Bun](https://bun.sh/docs/installation)** ≥ 1.0 (runtime + package manager + bundler)
+- **Node.js** ≥ 18
+- **One AI provider API key** (Anthropic, OpenAI, Google, OpenRouter — or a local Ollama server)
+- *(optional)* pdflatex for the LaTeX PDF tool
 
 ###1. Clone
 
@@ -460,12 +404,12 @@ cd Autopilot
 bun install
 ```
 
-> Workspaces(`frontend`, `backend`)install together.. On resource-constrained CI you can skip the Chromium download:`PUPPETEER_SKIP_DOWNLOAD=true bun install`.
+> Workspaces(frontend,backend)install together. On resource-constrained CI you can skip the Chromium download: `PUPPETEER_SKIP_DOWNLOAD=true bun install`.
 
 ###3. Configure environment
 
 ```bash
-cp .env.example .env
+cp.env.example.env
 ```
 
 Minimal Anthropic example:
@@ -473,7 +417,7 @@ Minimal Anthropic example:
 ```bash
 AI_MODEL=claude-sonnet-4-20250514
 AI_PROVIDER=anthropic
-ANTHROPIC_API_KEY=sk-ant-...
+ANTHROPIC_API_KEY=sk-ant-..
 ```
 
 ###4. Start
@@ -482,23 +426,22 @@ ANTHROPIC_API_KEY=sk-ant-...
 bun run dev:watch
 ```
 
-That runs the backend(`bun --watch`,port **3001**)and hot-rebuilds the frontend into `backend/public`,served by the same Express server..
+That runs the backend(`bun --watch`,port **3001**)and hot-rebuilds the frontend into `backend/public`,served by the same Express server.
 
 ###5. Open the app
 
 | URL | What |
 |---|---|
-| http://localhost:9005 | Frontend dev server(Vite proxy → backend) |
-| http://localhost:3001 | Backend API+Socket.IO+served frontend |
+| http://localhost:9005 | Frontend dev server (Vite proxy → backend) |
+| http://localhost:3001 | Backend API + Socket.IO + served frontend |
 | http://localhost:3001/health | Health check |
 
-**Ports:** backend `PORT`(default `3001`),frontend dev `9005`,WebTop Docker desktop `6901`.
+**Ports:** backend `PORT` (default `3001`), frontend dev `9005`, WebTop Docker desktop `6901`.
 
 ###Quick smoke test
 
 ```bash
 curl http://localhost:3001/health
-# {"status":"healthy","timestamp":"…","version":"1.0.0"}
 ```
 
 ---
@@ -507,14 +450,14 @@ curl http://localhost:3001/health
 
 | Provider | `.env` |
 |---|---|
-| **Anthropic Claude** | `AI_PROVIDER=anthropic`·`AI_MODEL=claude-sonnet-4-20250514`·`ANTHROPIC_API_KEY=…` |
-| **OpenAI GPT** | `AI_PROVIDER=openai`·`AI_MODEL=gpt-4o`·`OPENAI_API_KEY=…` |
-| **OpenAI-compatible(LiteLLM / vLLM / LocalAI)** | add `OPENAI_BASE_URL=http://host:4000` |
-| **Google Gemini** | `AI_PROVIDER=google`·`AI_MODEL=gemini-1.5-pro`·`GOOGLE_GENERATIVE_AI_API_KEY=…` |
-| **Ollama(local,free)** | `AI_PROVIDER=ollama`·`AI_MODEL=llama3.1:8b`(no key — run `ollama serve`) |
-| **OpenRouter(one key,many models)** | `AI_PROVIDER=openrouter`·`AI_MODEL=anthropic/claude-3.5-sonnet`·`OPENROUTER_API_KEY=…` |
+| **Anthropic Claude** | `AI_PROVIDER=anthropic` · `AI_MODEL=claude-sonnet-4-20250514` · `ANTHROPIC_API_KEY=...` |
+| **OpenAI GPT** | `AI_PROVIDER=openai` · `AI_MODEL=gpt-4o` · `OPENAI_API_KEY=...` |
+| **OpenAI-compatible (LiteLLM / vLLM / LocalAI)** | add `OPENAI_BASE_URL=http://host:4000` |
+| **Google Gemini** | `AI_PROVIDER=google` · `AI_MODEL=gemini-1.5-pro` · `GOOGLE_GENERATIVE_AI_API_KEY=...` |
+| **Ollama (local, free)** | `AI_PROVIDER=ollama` · `AI_MODEL=llama3.1:8b` (no key — run `ollama serve`) |
+| **OpenRouter (one key, many models)** | `AI_PROVIDER=openrouter` · `AI_MODEL=anthropic/claude-3.5-sonnet` · `OPENROUTER_API_KEY=...` |
 
-Full provider guide:[docs/AI_PROVIDERS.md](docs/AI_PROVIDERS.md
+Full provider guide: [docs/AI_PROVIDERS.md](docs/AI_PROVIDERS.md)
 
 ---
 
@@ -522,20 +465,20 @@ Full provider guide:[docs/AI_PROVIDERS.md](docs/AI_PROVIDERS.md
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `AI_PROVIDER` | *(required)* | `anthropic`, `openai`, `google`, `ollama`, `openrouter` |
+| `AI_PROVIDER` | *(required)* | anthropic, openai, google, ollama, openrouter |
 | `AI_MODEL` | *(required)* | Model id per provider |
-| `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_GENERATIVE_AI_API_KEY` / `OPENROUTER_API_KEY` | — | Provider keys(Ollama needs none) |
-| `OPENAI_BASE_URL` | — | Custom OpenAI-compatible endpoint(LiteLLM,vLLM,LocalAI…) |
-| `AI_TEMPERATURE` | `0.7` | Sampling temperature |
-| `AI_MAX_TOKENS` | `4000` | Max tokens per response |
-| `PORT` | `3001` | Backend / API port |
-| `FRONTEND_URL` | `http://localhost:9005` | CORS / Socket.IO origin |
-| `NODE_ENV` | `development` | Runtime mode |
-| `WORKSPACE_PATH` | `./workspace` | Sandbox root for file/code tools |
-| `MCP_CONFIG_PATH` | `./mcp-config.json` | MCP server definitions |
-| `DATABASE_PATH` | `./data/sessions.db` | SQLite file location |
+| `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_GENERATIVE_AI_API_KEY` / `OPENROUTER_API_KEY` | — | Provider keys (Ollama needs none) |
+| `OPENAI_BASE_URL` | — | Custom OpenAI-compatible endpoint (LiteLLM, vLLM, LocalAI...) |
+| `AI_TEMPERATURE` | 0.7 | Sampling temperature |
+| `AI_MAX_TOKENS` | 4000 | Max tokens per response |
+| `PORT` | 3001 | Backend / API port |
+| `FRONTEND_URL` | http://localhost:9005 | CORS / Socket.IO origin |
+| `NODE_ENV` | development | Runtime mode |
+| `WORKSPACE_PATH` |./workspace | Sandbox root for file/code tools |
+| `MCP_CONFIG_PATH` |./mcp-config.json | MCP server definitions |
+| `DATABASE_PATH` |./data/sessions.db | SQLite file location |
 
-See also [docs/CONFIGURATION.md](docs/CONFIGURATION.md..
+See also [docs/CONFIGURATION.md](docs/CONFIGURATION.md.
 
 
 ---
@@ -544,45 +487,44 @@ See also [docs/CONFIGURATION.md](docs/CONFIGURATION.md..
 
 Two flavors:
 
-###A. Standalone(quickest)
+###A. Standalone (quickest)
 
 ```yaml
-# docker-compose.yml(already included)
 services:
   terminator:
-    build: .
+    build:.
     ports:
       - "6901:6901"   # WebTop desktop
       - "9005:9005"   # Terminator UI
     volumes:
-      - ./config:/config
+      -./config:/config
       - /var/run/docker.sock:/var/run/docker.sock # optional
     shm_size: "1gb"   # headroom for Chromium
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-    security_opt: [seccomp:unconfined] # optional,browser sandbox
+    security_opt: [seccomp:unconfined] # optional
 ```
 
 ```bash
 docker-compose build && docker-compose up -d
 ```
 
-Open `http://localhost:6901` for the **full Linux desktop**(KDE),double-click the **Terminator** shortcut,or run `/app/start-terminator.sh` — your AI platform lands at `http://localhost:9005`.
+Open `http://localhost:6901` for the **full Linux desktop** (KDE), double-click the **Terminator** shortcut, or run `/app/start-terminator.sh` — your AI platform lands at `http://localhost:9005`.
 
 Mount your key:
 
 ```yaml
 volumes:
-  - ./.env:/app/terminator/.env
+  -./.env:/app/terminator/.env
 ```
 
 ###B. Binary-style image
 
-Compile a standalone binary(below),place itin `dist/terminator-linux`,then `docker build` —the image runs `./dist/terminator-linux` with Chromium preinstalled(`PUPPETEER_EXECUTABLE_PATH` set),desktop shortcut included..
+Compile a standalone binary (below), place it in `dist/terminator-linux`, then `docker build` — the image runs `./dist/terminator-linux` with Chromium preinstalled,desktop shortcut included.
 
-Full walkthrough:[DOCKER.md](DOCKER.md
+Full walkthrough: [DOCKER.md](DOCKER.md)
 
 ---
 
@@ -594,20 +536,19 @@ Bun can embed the **entire backend into a single executable** — no Node instal
 # 1) Build the frontend into backend/public
 bun run build
 
-# 2) Compile the server(cross-platform targets)
-mkdir -p ./dist
+# 2) Compile the server (cross-platform targets)
+mkdir -p./dist
 bun run compile:linux    # bun-linux-x64
 bun run compile:windows  # bun-windows-x64
-# …or add bun run compile:mac for darwin
 
 # Manual:
 bun build backend/src/index.ts --compile --target=bun-linux-x64 --external puppeteer --outfile=./dist/iris-server-linux
 
 # 3) Ship it with the static frontend
-cp -r backend/public ./dist/
+cp -r backend/public./dist/
 ```
 
-The GitHub Actions release workflow(`release.yml`)already builds **4 binaries**(Linux x64/arm64,macOS x64/arm64)+frontend tarball on every `main` push,and attaches them to a `v<N>` release..
+The GitHub Actions release workflow (`release.yml`) already builds **4 binaries** (Linux x64/arm64, macOS x64/arm64) + frontend tarball on every `main` push,and attaches them to a release.
 
 ---
 
@@ -615,15 +556,15 @@ The GitHub Actions release workflow(`release.yml`)already builds **4 binaries**(
 
 | Script | Description |
 |---|---|
-| `bun run dev` | Run backend+frontend dev servers concurrently |
-| `bun run dev:watch` | Backend watch+auto-rebuild frontend on change(recommended) |
+| `bun run dev` | Run backend + frontend dev servers concurrently |
+| `bun run dev:watch` | Backend watch + auto-rebuild frontend on change (recommended) |
 | `bun run build` | Build frontend → `backend/public` |
 | `bun run start` | Start the compiled/backend server |
-| `bun run compile` | Build frontend+compile full server binary(excludes puppeteer) |
+| `bun run compile` | Build frontend + compile full server binary (excludes puppeteer) |
 | `bun run compile:linux` / `compile:windows` | Cross-compile standalone binaries |
 | `bun run lint` / `type-check` / `test` | Quality gates across workspaces |
 | `bun run clean` | Clean all workspace artifacts |
-| `./start-server.sh` | Secure startup — API key via stdin,never in `ps` |
+| `./start-server.sh` | Secure startup — API key via stdin, never in `ps` |
 | `./kill-port.sh <port>` | Kill whatever sits on a port |
 | `./convert-demo.sh <video>` | Rebuild `demo.gif` from an MP4 |
 
@@ -631,42 +572,41 @@ The GitHub Actions release workflow(`release.yml`)already builds **4 binaries**(
 
 ## 🗂️ Project Structure
 
-```
-.
-├── backend/                  # Express+AI SDK server(Bun)
-│   ├── mcp-config.json         # MCP server definitions(browser,…)
+```.
+├── backend/                  # Express + AI SDK server (Bun)
+│   ├── mcp-config.json         # MCP server definitions (browser,...)
 │   ├── src/
-│   │   ├── index.ts            # Entry:Express,Socket.IO,CSP,PDF serving
+│   │   ├── index.ts            # Entry: Express, Socket.IO,CSP,PDF serving
 │   │   ├── agents/
-│   │   │   ├── AgentTARS.ts   # multi-agent orchestration+selection
-│   │   │   ├── CodeActAgent.ts # sandboxed code execution(node/python/shell)
+│   │   │   ├── AgentTARS.ts   # multi-agent orchestration + selection
+│   │   │   ├── CodeActAgent.ts # sandboxed code execution (node/python/shell)
 │   │   │   ├── DeepResearchAgent.ts # plan-and-execute research engine
-│   │   │   └── research/       # search,deep-dive,report generator,sessions
+│   │   │   └── research/       # search, deep-dive,report generator,sessions
 │   │   ├── services/
 │   │   │   ├── AIService.ts    # streaming/generate via Vercel AI SDK
 │   │   │   ├── MCPManager.ts   # MCP lifecycle:connect,retry,execute
-│   │   │   ├── SocketService.ts # real-time streaming+replay event capture
-│   │   │   ├── SessionService.ts# session CRUD+auto titles
-│   │   │   └── DatabaseService.ts # SQLite schema+indexes
-│   │   ├── routes/             # chat,sessions,replay(JSON+HTML export)
-│   │   ├── config/providers.ts # provider validation(5 providers)
+│   │   │   ├── SocketService.ts # real-time streaming + replay event capture
+│   │   │   ├── SessionService.ts # session CRUD + auto titles
+│   │   │   └── DatabaseService.ts # SQLite schema + indexes
+│   │   ├── routes/             # chat, sessions,replay (JSON + HTML export)
+│   │   ├── config/providers.ts # provider validation
 │   │   └── services/tools/     # command-execution,file-system,latex-pdf,mcp
 │   └── workspace/             # sandbox for agent file/code ops
-├── frontend/                   # React 18+Vite+Tailwind(builds → backend/public)
+├── frontend/                   # React 18 + Vite + Tailwind (builds → backend/public)
 │   └── src/
 │       ├── components/
-│       │   ├── chat/          # ChatInterface,ChatInput,ChatMessage(MD+code)
-│       │   ├── workspace/     # film-strip WorkspacePanel+playback hooks
-│       │   ├── tools/renderers/# 21+ result renderers(browser,codeact,
-│       │   │                   #  deep-research,pdf,command,json,search…)
+│       │   ├── chat/          # ChatInterface,ChatInput,ChatMessage (MD + code)
+│       │   ├── workspace/     # film-strip WorkspacePanel + playback hooks
+│       │   ├── tools/renderers/ # 21+ result renderers (browser, codeact,
+│       │   │                    #  deep-research,pdf,command,json,search...)
 │       │   └── layout/ sidebar/ ui/ about/
 │       └── hooks/ lib/ contexts/ # useChat,useSocket,socket client,theme
 ├── docs/                       # architecture,providers,config,api,getting-started
 ├── Dockerfile                  # WebTop KDE desktop image w/ Terminator
 ├── docker-compose.yml
-├── .github/workflows/release.yml # auto release+4 binaries on every push
+├──.github/workflows/release.yml # auto release + 4 binaries on every push
 ├── Makefile                    # docker build/push/exec helpers
-└── demo.gif                    # the demo — keep it
+└── demo.gif                    # the demo
 ```
 
 ---
@@ -675,18 +615,18 @@ The GitHub Actions release workflow(`release.yml`)already builds **4 binaries**(
 
 | Method | Route | Purpose |
 |---|---|---|
-| `GET` | `/health` | Liveness+version |
-| `POST` | `/api/chat/message` | Send message(`{sessionId,message,stream?}`;SSE stream supported) |
-| `GET` | `/api/chat/config`·`POST` `/api/chat/config` | Read / hot-update AI model config |
-| `GET` | `/api/sessions`·`POST` `/api/sessions` | List / create sessions |
-| `GET` | `/api/sessions/:id`·`PUT` `:id` | Read / update session(title) |
-| `GET` | `/api/replay/sessions/:id/replay` | Full replay timeline(JSON) |
+| `GET` | `/health` | Liveness + version |
+| `POST` | `/api/chat/message` | Send message (`{sessionId, message, stream?}`; SSE stream supported) |
+| `GET` | `/api/chat/config` · `POST` `/api/chat/config` | Read / hot-update AI model config |
+| `GET` | `/api/sessions` · `POST` `/api/sessions` | List / create sessions |
+| `GET` | `/api/sessions/:id` · `PUT` `:id` | Read / update session (title) |
+| `GET` | `/api/replay/sessions/:id/replay` | Full replay timeline (JSON) |
 | `GET` | `/api/replay/sessions/:id/export` | Download self-contained HTML replay |
-| `GET` | `/api/pdf/:filename` | Stream a generated PDF(path-traversal-safe) |
+| `GET` | `/api/pdf/:filename` | Stream a generated PDF (path-traversal-safe) |
 
-**Socket.IO events**(`/socket.io`)`:`create_session`, `join_session`, `leave_session`, `send_message`, `get_sessions`, `delete_session` → `new_message`, `message_chunk`, `assistant_thinking`, `tool_result`, `session_messages`, `session_created`,…All session events are recorded for replay..
+**Socket.IO events:** `create_session`, `join_session`, `leave_session`, `send_message`, `get_sessions`, `delete_session` → `new_message`, `message_chunk`, `assistant_thinking`, `tool_result`, `session_messages`, `session_created`,.. All session events are recorded for replay.
 
-Full reference:[docs/API_REFERENCE.md](docs/API_REFERENCE.md
+Full reference: [docs/API_REFERENCE.md](docs/API_REFERENCE.md
 
 ---
 
@@ -700,25 +640,24 @@ Full reference:[docs/API_REFERENCE.md](docs/API_REFERENCE.md
 - [AI Providers](docs/AI_PROVIDERS.md)
 - [API Reference](docs/API_REFERENCE.md)
 - [MCP Integration](backend/MCP_INTEGRATION.md)
-- [Docker Setup](DOCKER.md
+- [Docker Setup](DOCKER.md)
 
 ---
 
 ## 🗺️ Roadmap
 
-- [ ] SSE transport for remote MCP servers(URL-based,auth headers)
-- [ ] Per-agent memory pipelines shared across CodeAct / DeepResearch sessions
-- [ ] GUI automation agent(vision-first,like UI-TARS)
-- [ ] Multi-user auth(sessions scoped per user)
-- [ ] RAG / knowledge-graph backend(SQLite vector search)
-- [ ] One-click"Ship" flow:agent → PR/artifact → deployed demo
-- [ ] Ollama model health probing before agent selection
-- [ ] Recording:playback for full browser sessions(RRWeb-style
+- SSE transport for remote MCP servers (URL-based, auth headers)
+- Per-agent memory pipelines shared across CodeAct / DeepResearch sessions
+- GUI automation agent (vision-first)
+- Multi-user auth (sessions scoped per user)
+- RAG / knowledge-graph backend
+- One-click "Ship" flow: agent → PR/artifact → deployed demo
+- Recording: playback for full browser sessions
 
 ---
 
 ## ⚖️ License
 
-Released under the [MIT License](./LICENSE.
+Released under the [MIT License](./LICENSE)
 
-<sub>Builtfor the **Best Automated Software Engineering Project** track — where agents don't just answer,they build.</sub>
+<sub>Built for the **Best Automated Software Engineering Project** track — where agents don't just answer, they build.</sub>
