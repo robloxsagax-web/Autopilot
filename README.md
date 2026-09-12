@@ -73,7 +73,7 @@
 
 ![Demo](demo.gif)
 
-###The shortest description
+### The shortest description
 
 | Term | Does |
 |---|---|
