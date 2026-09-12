@@ -1,12 +1,12 @@
 <div align="center">
 
-  <img src="terminator.png" alt="Terminator Logo" width="120" height="120">
+  <img src="autopilot.png" alt="Autopilot Logo" width="120" height="120">
 
-  <h1 align="center">🤖 Terminator</h1>
+  <h1 align="center">🤖 Autopilot</h1>
 
   <p align="center">
     <b>The AI Automated Software Engineering Platform</b><br/>
-    One agent that researches · browses · writes code · generates files · ships work — end to end.
+    <b>Set the destination. It flies the plane.</b>
   </p>
 
   <p align="center">
@@ -43,7 +43,7 @@
 
 ## 📖 Table of Contents
 
-- [What Is Terminator?](#what-is-terminator)
+- [What Is Autopilot?](#what-is-terminator)
 - [The Problem We Are Solving](#the-problem-we-are-solving)
 - [Why We Built This — The Origin Story](#why-we-built-this---the-origin-story)
 - [How We Built It — The Engineering Story](#how-we-built-it---the-engineering-story)
@@ -65,9 +65,9 @@
 
 ---
 
-## 🔍 What Is Terminator?
+## 🔍 What Is Autopilot?
 
-> **Terminator is an open-source, self-hosted AI software-engineering copilot.** It fuses a multi-agent reasoning system, a sandboxed code execution engine, a vision-capable browser automation layer, deep web research, and a cinematic "film strip" tool-result workspace into a single web application. One natural-language request can turn into working code, a compiled PDF, a researched report, or a completed browser task — all inside one session.
+> **Autopilot is an open-source, self-hosted AI software-engineering copilot.** It fuses a multi-agent reasoning system, a sandboxed code execution engine, a vision-capable browser automation layer, deep web research, and a cinematic "film strip" tool-result workspace into a single web application. One natural-language request can turn into working code, a compiled PDF, a researched report, or a completed browser task — all inside one session.
 
 
 
@@ -92,7 +92,7 @@
 
 Every student, hackathon team,and startup engineer hits the same wall. The software-engineering loop is **broken across ten disconnected tools**:
 
-| # | Problem | What hurts | How Terminator fixes it |
+| # | Problem | What hurts | How Autopilot fixes it |
 |---|---|---|---|
 | 1 | **Agents talk, but they don't *do*** | Chatbots stop at the text — no files written, no code run, no artifacts produced | Every capability is a **tool that executes** and streams its real result back — web pages fetched, code compiled,PDFs generated |
 | 2 | **Running AI code is dangerous** | Copy-paste into a terminal, guess dependencies,pollute your machine | **Sandboxed workspace** with path-traversal guards,dangerous-command blocking,per-language isolation,auto dependency install,timeouts,real-time streamed output |
@@ -173,7 +173,7 @@ Conversations are worthless if they vanish on restart. `DatabaseService` models 
 "Works on my machine" wasn't acceptable. Three deployment stories:
 
 - **Standalone binary**: `bun build --compile` embeds the entire backend into one executable per target. No Node.js install required.
-- **Docker WebTop**:the `docker-compose.yml` spins up a full **Linux desktop in the browser**(KDE)with Terminator installed as a desktop app + Chromium preinstalled for MCP browser tools.
+- **Docker WebTop**:the `docker-compose.yml` spins up a full **Linux desktop in the browser**(KDE)with Autopilot installed as a desktop app + Chromium preinstalled for MCP browser tools.
 - **CI release pipeline**: `.github/workflows/release.yml` fires on every `main` push — builds the frontend,compiles **4 binaries** ona matrix,and attaches them to an auto-incremented GitHub Release. Push to main = software released.
 
 ### The hard-won lessons
@@ -187,11 +187,11 @@ Conversations are worthless if they vanish on restart. `DatabaseService` models 
 
 ## 🏆 The "Best Automated Software Engineering" Case
 
-Judges ask three questions:**Substance, Execution, Business.** Here's how Terminator answers each — by design,not by accident:
+Judges ask three questions:**Substance, Execution, Business.** Here's how Autopilot answers each — by design,not by accident:
 
 ###Substance — real problem,deep attempt
 
-| Criterion | Terminator's answer |
+| Criterion | Autopilot's answer |
 |---|---|
 | **Strength of problem** | The AI-engineering gap:models reason but can't *do*. We scaffolded the missing **effects layer** — sandboxed execution,real browser control,artifact generation. |
 | **Originality** | Not a chatbot wrapper:,a **multi-agent orchestration + tool-execution + replay workspace** —the "film strip" timeline you can scrub,and export as HTML |
@@ -199,7 +199,7 @@ Judges ask three questions:**Substance, Execution, Business.** Here's how Termin
 
 ### Execution — quality of build & UX
 
-| Criterion | Terminator's answer |
+| Criterion | Autopilot's answer |
 |---|---|
 | **Functionality** | It *does* things:runs Node/Python/Shell,browseswith vision,researches w/ citations,generates PDFs — all streamed live into a three-panel IDE-like workspace. |
 | **Implementation** | TypeScript strict throughout;every tool parameter **Zod-validated**;path-traversal guards;dangerous-command blacklists;CSP via Helmet;graceful shutdown;error handlers. |
@@ -207,11 +207,11 @@ Judges ask three questions:**Substance, Execution, Business.** Here's how Termin
 
 ### Business — why it matters in the real world
 
-| Criterion | Terminator's answer |
+| Criterion | Autopilot's answer |
 |---|---|
 | **Target user** | Students automating homework,hackathon teams needing a research+code copilot,indie hackers shipping scripts,anyone who wants a self-hosted agentthat actually *does work* on their own machine. |
 | **Real-world potential** | An **open platform with pluggable MCP servers** — today browser;tomorrow GitHub,Slack,Postgres,Kubernetes. The same architecture scales from local hacking to production automation. |
-| **Why it matters** | As agents get smarter,the bottleneck shifts from *reasoning quality* to *safe,observable,effectful action*. Terminator is a working answer to that bottleneck — and it runs anywhere(binary,Docker,desktop. |
+| **Why it matters** | As agents get smarter,the bottleneck shifts from *reasoning quality* to *safe,observable,effectful action*. Autopilot is a working answer to that bottleneck — and it runs anywhere(binary,Docker,desktop. |
 
 ---
 
@@ -284,8 +284,8 @@ codeact_memory: persistent key/value memory across sessions
 
 ```mermaid
 flowchart LR
-    U[User / Web Browser] -->|Socket.IO / SSE| F[Terminator Frontend<br/>React 18 • Vite • Tailwind]
-    U -->|HTTPS REST| B[Terminator Backend<br/>Express • Bun • SQLite]
+    U[User / Web Browser] -->|Socket.IO / SSE| F[Autopilot Frontend<br/>React 18 • Vite • Tailwind]
+    U -->|HTTPS REST| B[Autopilot Backend<br/>Express • Bun • SQLite]
 
     F -->|socket.io events| S[SocketService<br/>streaming • session rooms]
     F -->|/api/*| R[Express Routes<br/>chat • sessions • replay]
@@ -344,7 +344,7 @@ sequenceDiagram
 
 ```mermaid
 graph TD
-    ROOT["Terminator (monorepo)"] --> BE["backend (Express + AI SDK)"]
+    ROOT["Autopilot (monorepo)"] --> BE["backend (Express + AI SDK)"]
     ROOT --> FE["frontend (React + Vite)"]
     ROOT --> DOCS["docs/"]
     ROOT --> OPS["Dockerfile • Makefile • start-server.sh"]
@@ -495,7 +495,7 @@ services:
     build:.
     ports:
       - "6901:6901"   # WebTop desktop
-      - "9005:9005"   # Terminator UI
+      - "9005:9005"   # Autopilot UI
     volumes:
       -./config:/config
       - /var/run/docker.sock:/var/run/docker.sock # optional
@@ -511,7 +511,7 @@ services:
 docker-compose build && docker-compose up -d
 ```
 
-Open `http://localhost:6901` for the **full Linux desktop** (KDE), double-click the **Terminator** shortcut, or run `/app/start-terminator.sh` — your AI platform lands at `http://localhost:9005`.
+Open `http://localhost:6901` for the **full Linux desktop** (KDE), double-click the **Autopilot** shortcut, or run `/app/start-terminator.sh` — your AI platform lands at `http://localhost:9005`.
 
 Mount your key:
 
@@ -602,7 +602,7 @@ The GitHub Actions release workflow (`release.yml`) already builds **4 binaries*
 │       │   └── layout/ sidebar/ ui/ about/
 │       └── hooks/ lib/ contexts/ # useChat,useSocket,socket client,theme
 ├── docs/                       # architecture,providers,config,api,getting-started
-├── Dockerfile                  # WebTop KDE desktop image w/ Terminator
+├── Dockerfile                  # WebTop KDE desktop image w/ Autopilot
 ├── docker-compose.yml
 ├──.github/workflows/release.yml # auto release + 4 binaries on every push
 ├── Makefile                    # docker build/push/exec helpers

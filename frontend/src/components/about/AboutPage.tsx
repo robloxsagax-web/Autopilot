@@ -11,7 +11,7 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
   // Git information - these would typically come from environment variables or build process
   const gitInfo = {
-    repository: 'iris-networks/terminator',
+    repository: 'robloxsagax-web/Autopilot',
     commit: 'a15d9ea',
     branch: 'feat/experimental_mcp',
     version: '1.0.0',
@@ -56,7 +56,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                 <FiCode className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-display font-bold">Terminator</h1>
+                <h1 className="text-3xl font-display font-bold">Autopilot</h1>
                 <p className="text-accent-100 text-lg">AI Agent Platform</p>
               </div>
             </div>
