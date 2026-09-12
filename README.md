@@ -101,7 +101,7 @@ Every student, hackathon team,and startup engineer hits the same wall. The softw
 | 5 | **You can't see what the agent is doing** | Black-box agents feel untrustworthy — judges&users can't verify work | **Film-strip Workspace panel** renders every tool result as a contextual card behind playback controls;export **standalone HTML replays** for demos&judges |
 | 6 | **Deploying AI software is a pain** | Runtimes,dependencies,browser binaries,secrets in `ps` | Ships as a **single compiled Bun binary**,a **Docker WebTop desktop app**,and `start-server.sh` that feeds API keys via stdin |
 
-###So — the problem,in one breath:
+### So — the problem,in one breath:
 
 > **Software-engineeringwith AI shouldn't be a scavenger hunt across ten tools. It should be one self-hosted platform where an agent does the *whole* engineering loop — plan, search, browse, write, execute,generate artifacts,and replay it all — transparently,and verifiably.**
 
@@ -124,11 +124,11 @@ We kept watching the same pattern repeat:brilliant ideas stalled at the gap betw
 
 Building a platform where an LLM can safely *drive a computer* meant solving eight hard engineering problems. Here's the honest breakdown:
 
-###1️⃣ Agent orchestration — the brain that delegates
+### 1️⃣ Agent orchestration — the brain that delegates
 
 We didn't want one generic agent failing at everything. `AgentTARS.ts` defines **agent archetypes** with explicit capability maps(`AGENT_CAPABILITIES`)and specialization lists. A `select_agent` tool classifies every incoming task by keywords and picks the best specialist; `switch_agent` preserves conversation context;and `coordinate_agents` builds a **dependency-graph execution order** so subtasks run in the right sequence even with dependencies. Result:one assistant that *looks* general but internally routes to specialists — exactly how a real engineering team operates.
 
-###2️⃣ The CodeAct sandbox — safe,real execution
+### 2️⃣ The CodeAct sandbox — safe,real execution
 
 The riskiest part of letting an LLM "run code" is trust. Our design remade this as a **sandboxed subprocess service**:
 
@@ -137,7 +137,7 @@ The riskiest part of letting an LLM "run code" is trust. Our design remade this 
 - **Hard guards**: dangerous-command blacklist(`rm -rf /`, `dd`, `fork bombs`…),timeouts with SIGTERM→SIGKILL escalation,exit codes,duration metadata.
 - **Persistent memory**:a key/value store keyed by name so the agent remembers scripts,data,and outputs across turns —the beginning of an agent-native filesystem.
 
-###3️⃣ DeepResearch — verify,don't hallucinate
+### 3️⃣ DeepResearch — verify,don't hallucinate
 
 We replaced single-shot "answer generation" with a **plan-and-execute research protocol**:
 
@@ -147,11 +147,11 @@ We replaced single-shot "answer generation" with a **plan-and-execute research p
 - Research sessions are first-class citizens:`session_manager` lists,inspects,and deletes them with live stats.
 
 
-###4️⃣ MCP browser layer — vision-grade web automation without the pain
+### 4️⃣ MCP browser layer — vision-grade web automation without the pain
 
 Ra ther than hand-rolling fragile selectors,we built on the **Model Context Protocol**,the open standard rushing through the industry. `MCPManager` handles the full connection lifecycle:stdio transport,exponential-backoff reconnects,retry caps,per-server timeouts,health checks,and a config kill-switch. The bundled default — `@agent-infra/mcp-server-browser --vision` — gives the agent **vision-based** browser control. Because MCP tools plug into the same Zod-validated tool registry,the agent seamlessly mixes browser actions with code execution,and research in one plan.
 
-###5️⃣ Replay engine — every tool call becomes film
+### 5️⃣ Replay engine — every tool call becomes film
 
 Engineers trust what they can *watch happen*. `SocketService` records a timestamped event stream per session(`user_message`, `assistant_thinking`, `assistant_message`, `tool_call`). That stream powers:
 
@@ -160,15 +160,15 @@ Engineers trust what they can *watch happen*. `SocketService` records a timestam
 
 - **`GET /api/replay/sessions/:id/export`** — a **self-contained HTML replay** with an embedded React+Tailwind timeline you can download,send to a judge,or demo offline.
 
-###6️⃣ Streaming UX — latency is a feature to design for
+### 6️⃣ Streaming UX — latency is a feature to design for
 
 LLM generation is slow,so slow is death. We built a dual streaming path:**Socket.IO** events for the web app,and **SSE** for the REST API. Tokens stream,tool results stream,even the *thinking state* streams as animated dots. It feels alive because it *is* alive — every frame of the agent's work arrives the moment it happens.
 
-###7️⃣ SQLite persistence — sessions,messages,tool calls
+### 7️⃣ SQLite persistence — sessions,messages,tool calls
 
 Conversations are worthless if they vanish on restart. `DatabaseService` models three tables(`sessions`, `messages`, `tool_calls`with FK cascade deletes),four indexes,and `SessionService` layers a memory cache on top with auto-generated titles from the first user message. Sessions survive restarts,and the sidebar instantly regroups them by **Today / Yesterday / This Week**.
 
-###8️⃣ Ship it everywhere — binary,Docker,CI
+### 8️⃣ Ship it everywhere — binary,Docker,CI
 
 "Works on my machine" wasn't acceptable. Three deployment stories:
 
@@ -176,7 +176,7 @@ Conversations are worthless if they vanish on restart. `DatabaseService` models 
 - **Docker WebTop**:the `docker-compose.yml` spins up a full **Linux desktop in the browser**(KDE)with Terminator installed as a desktop app + Chromium preinstalled for MCP browser tools.
 - **CI release pipeline**: `.github/workflows/release.yml` fires on every `main` push — builds the frontend,compiles **4 binaries** ona matrix,and attaches them to an auto-incremented GitHub Release. Push to main = software released.
 
-###The hard-won lessons
+### The hard-won lessons
 
 - 🤖 **Give agents a filesystem,not just a prompt**
 - 🛡️ **Trust is engineered:sandbox,blacklist,validate**
@@ -197,7 +197,7 @@ Judges ask three questions:**Substance, Execution, Business.** Here's how Termin
 | **Originality** | Not a chatbot wrapper:,a **multi-agent orchestration + tool-execution + replay workspace** —the "film strip" timeline you can scrub,and export as HTML |
 | **Technical depth** | Eight hard systems in one repo:agent selection&coordination,sandboxed languages w/ auto-deps,plan-and-execute research,MCP lifecycle mgr,replay engine,dual streaming,SQLite schema design,multi-target compile+CI releases. |
 
-###Execution — quality of build & UX
+### Execution — quality of build & UX
 
 | Criterion | Terminator's answer |
 |---|---|
@@ -205,7 +205,7 @@ Judges ask three questions:**Substance, Execution, Business.** Here's how Termin
 | **Implementation** | TypeScript strict throughout;every tool parameter **Zod-validated**;path-traversal guards;dangerous-command blacklists;CSP via Helmet;graceful shutdown;error handlers. |
 | **UX & demonstration** | Thinking dots,gradient focus ring,connection banner,dark/light themes,Monaco editor,film-strip playback w/ speed control,and **one-click HTML replay export** — a built-in demo delivery mechanism. |
 
-###Business — why it matters in the real world
+### Business — why it matters in the real world
 
 | Criterion | Terminator's answer |
 |---|---|
@@ -217,7 +217,7 @@ Judges ask three questions:**Substance, Execution, Business.** Here's how Termin
 
 ## 🌟 The Best of What's Inside
 
-###🧠 Multi-Agent Orchestration
+### 🧠 Multi-Agent Orchestration
 
 - Three agent archetypes:**AI Assistant**(all tools),**CodeAct Agent**(sandboxed code),**DeepResearch Agent**(plan-and-execute research.
 - Automatic agent selection by task keywords,plus explicit tools to `select_agent`, `list_agents`, `switch_agent`(with context preservation),and `coordinate_agents`(dependency-graph execution ordering for sequential/parallel/dependency modes).
@@ -241,28 +241,28 @@ codeact_memory: persistent key/value memory across sessions
 - `report_generator`:**Markdown / HTML / JSON** reports from collected sources+images.
 - `session_manager`:list / inspect / delete research sessions with stats.
 
-###🌐 Vision-Capable Browser Automation(MCP)
+### 🌐 Vision-Capable Browser Automation(MCP)
 
 - Driven by the **Model Context Protocol** — connect any MCP server;
 - Bundled default:`@agent-infra/mcp-server-browser --vision`.
 - **21+ specialized renderers** for browser results:click/double-click/right-click,hover,drag&drop,form fill/type,wait,extract/text/links/clickable-elements — each shown as a visual step.
 
-###🛠️ General Toolkit
+### 🛠️ General Toolkit
 
 - `web_search`(enhanced), `visit_link`(readability-extracted content via Turndown/Mozilla Readability), `file_read` / `list_files` / `create_directory`(sandboxed workspace), `execute_command`(shell selection,timeouts,security blocks), `generate_latex_pdf`(compiles `pdflatex` → PDF served at `/api/pdf/:name`).
 
-###🎛️ Live IDE-Like Workspace Panel
+### 🎛️ Live IDE-Like Workspace Panel
 
 - Three-panel layout:**Recent Tasks sidebar**,**Chat**,**Workspace/Computer**(film-strip timeline of tool results with playback controls,per-frame renderers.
 - Gradient focus border on input,animated thinking dots,connection status banner,one-click **Export Replay**.
 
-###📼 Session Replay&Export
+### 📼 Session Replay&Export
 
 - Every `user_message`, `assistant_thinking`, `assistant_message`,and `tool_call` is recorded per session.
 - Replay API:`GET /api/replay/sessions/:id/replay`(JSON)and `/export`(self-contained HTML with embedded data+timeline UI).
 - Sessions persist in **SQLite**(`data/sessions.db`)with indexes on session/message/tool-call,and cascade deletes. Auto-generated titles from first message.
 
-###🛡️ Security-First Design
+### 🛡️ Security-First Design
 
 - Path validation — no directory traversal out of `workspace/`.
 - Dangerous command blacklist(`rm -rf /`, `dd`, `mkfs`, `fork bomb`,…).
@@ -271,7 +271,7 @@ codeact_memory: persistent key/value memory across sessions
 - MCP connections with exponential backoff reconnect,max-retry caps,timeouts,health checks,and kill-switch.
 - `start-server.sh` feeds env vars via stdin temp file — **API keys never visiblein process listings**.
 
-###🎨 Modern,Polished UI
+### 🎨 Modern,Polished UI
 
 - React 18+TypeScript+Vite+Tailwind,React Router(shareable `/sessionId` URLs,dark/light theme with `next-themes`,Framer Motion animations,Monaco editor,react-markdown+GFM+rehype-highlight,glassmorphism panes,macOS traffic-light header,gradient accent system.
 
@@ -308,7 +308,7 @@ flowchart LR
     R2 --> F
 ```
 
-###Multi-Agent Orchestration
+### Multi-Agent Orchestration
 
 ```mermaid
 sequenceDiagram
@@ -340,7 +340,7 @@ sequenceDiagram
     U->>FS: Export Replay → HTML
 ```
 
-###Repository Layout
+### Repository Layout
 
 ```mermaid
 graph TD
@@ -384,21 +384,21 @@ graph TD
 
 ## 🚀 Getting Started
 
-###Prerequisites
+### Prerequisites
 
 - **[Bun](https://bun.sh/docs/installation)** ≥ 1.0 (runtime + package manager + bundler)
 - **Node.js** ≥ 18
 - **One AI provider API key** (Anthropic, OpenAI, Google, OpenRouter — or a local Ollama server)
 - *(optional)* pdflatex for the LaTeX PDF tool
 
-###1. Clone
+### 1. Clone
 
 ```bash
 git clone https://github.com/robloxsagax-web/Autopilot.git
 cd Autopilot
 ```
 
-###2. Install dependencies
+### 2. Install dependencies
 
 ```bash
 bun install
@@ -406,7 +406,7 @@ bun install
 
 > Workspaces(frontend,backend)install together. On resource-constrained CI you can skip the Chromium download: `PUPPETEER_SKIP_DOWNLOAD=true bun install`.
 
-###3. Configure environment
+### 3. Configure environment
 
 ```bash
 cp.env.example.env
@@ -420,7 +420,7 @@ AI_PROVIDER=anthropic
 ANTHROPIC_API_KEY=sk-ant-..
 ```
 
-###4. Start
+### 4. Start
 
 ```bash
 bun run dev:watch
@@ -428,7 +428,7 @@ bun run dev:watch
 
 That runs the backend(`bun --watch`,port **3001**)and hot-rebuilds the frontend into `backend/public`,served by the same Express server.
 
-###5. Open the app
+### 5. Open the app
 
 | URL | What |
 |---|---|
@@ -438,7 +438,7 @@ That runs the backend(`bun --watch`,port **3001**)and hot-rebuilds the frontend 
 
 **Ports:** backend `PORT` (default `3001`), frontend dev `9005`, WebTop Docker desktop `6901`.
 
-###Quick smoke test
+### Quick smoke test
 
 ```bash
 curl http://localhost:3001/health
