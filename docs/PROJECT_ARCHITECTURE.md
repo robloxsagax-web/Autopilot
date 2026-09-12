@@ -1,6 +1,6 @@
 # Project Architecture
 
-Terminator is a monorepo managed with `pnpm` workspaces. It consists of two main packages: a `frontend` application and a `backend` server.
+Autopilot is a monorepo managed with `pnpm` workspaces. It consists of two main packages: a `frontend` application and a `backend` server.
 
 ## Directory Structure
 

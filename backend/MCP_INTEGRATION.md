@@ -1,6 +1,6 @@
 # MCP (Model Context Protocol) Integration
 
-This document describes the Model Context Protocol (MCP) integration added to the Terminator AI system, which allows agents to dynamically connect to and use tools from external MCP servers.
+This document describes the Model Context Protocol (MCP) integration added to the Autopilot AI system, which allows agents to dynamically connect to and use tools from external MCP servers.
 
 ## Overview
 

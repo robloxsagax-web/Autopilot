@@ -1,6 +1,6 @@
 # AI Providers Configuration
 
-Terminator supports multiple AI providers. Choose one and set the corresponding environment variables in your `.env` file.
+Autopilot supports multiple AI providers. Choose one and set the corresponding environment variables in your `.env` file.
 
 ## Anthropic Claude
 
@@ -105,7 +105,7 @@ ollama serve
 ollama pull llama3.1:8b
 ```
 
-3. **Configure Terminator:**
+3. **Configure Autopilot:**
 ```bash
 AI_PROVIDER=ollama
 AI_MODEL=llama3.1:8b
@@ -118,7 +118,7 @@ AI_MODEL=llama3.1:8b
 - `codellama` - Specialized for coding tasks
 - `mistral` - Alternative option
 
-**Note:** Make sure Ollama is running (`ollama serve`) before starting Terminator.
+**Note:** Make sure Ollama is running (`ollama serve`) before starting Autopilot.
 
 ## OpenRouter
 

@@ -1,6 +1,6 @@
-# Terminator Docker Setup
+# Autopilot Docker Setup
 
-This setup uses the LinuxServer WebTop image to provide a complete desktop environment with Terminator running as a standalone binary.
+This setup uses the LinuxServer WebTop image to provide a complete desktop environment with Autopilot running as a standalone binary.
 
 ## Quick Start
 
@@ -18,10 +18,10 @@ This setup uses the LinuxServer WebTop image to provide a complete desktop envir
    - Open your browser and go to `http://localhost:3001`
    - You'll see a full Linux desktop environment (KDE)
 
-4. **Start Terminator:**
-   - On the desktop, double-click the "Terminator" shortcut
+4. **Start Autopilot:**
+   - On the desktop, double-click the "Autopilot" shortcut
    - Or open a terminal and run: `/app/start-terminator.sh`
-   - Terminator will be available at `http://localhost:9005`
+   - Autopilot will be available at `http://localhost:9005`
 
 ## Configuration
 
@@ -40,14 +40,14 @@ This setup uses the LinuxServer WebTop image to provide a complete desktop envir
 ## Architecture
 
 - **Base Image:** LinuxServer WebTop (Ubuntu KDE)
-- **Binary:** Standalone Bun-compiled Terminator executable
+- **Binary:** Standalone Bun-compiled Autopilot executable
 - **Assets:** Static frontend files served by the binary
 - **Browser:** Chromium installed for Puppeteer automation
 - **Desktop:** Full KDE desktop environment accessible via web browser
 
 ## Ports
 
-- `9005`: Terminator web interface
+- `9005`: Autopilot web interface
 - `3001`: WebTop desktop environment
 - `6379`: Redis (optional, for session storage)
 
@@ -56,7 +56,7 @@ This setup uses the LinuxServer WebTop image to provide a complete desktop envir
 - `PUID=1000`: User ID for file permissions
 - `PGID=1000`: Group ID for file permissions  
 - `TZ=Etc/UTC`: Timezone
-- `TITLE=Terminator`: Window title
+- `TITLE=Autopilot`: Window title
 
 ## Troubleshooting
 

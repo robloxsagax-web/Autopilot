@@ -8,7 +8,7 @@ services:
       - TZ=Etc/UTC
       - SUBFOLDER=/ # optional
       - KEYBOARD=en-us-qwerty # optional
-      - TITLE=Terminator # optional
+      - TITLE=Autopilot # optional
       - CUSTOM_PORT=6901 # webtop internal port
     volumes:
       - ./config:/config

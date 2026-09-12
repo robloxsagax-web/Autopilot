@@ -1,7 +1,7 @@
 FROM lscr.io/linuxserver/webtop:ubuntu-xfce
 
 # Set metadata
-LABEL org.opencontainers.image.title="Terminator"
+LABEL org.opencontainers.image.title="Autopilot"
 LABEL org.opencontainers.image.description="AI-powered research and automation platform"
 LABEL org.opencontainers.image.version="1.0.0"
 
@@ -34,7 +34,7 @@ COPY ./dist/public /app/terminator/public
 # Make the binary executable
 RUN chmod +x /app/terminator/terminator
 
-# Set up environment for Chromium and Terminator
+# Set up environment for Chromium and Autopilot
 ENV CHROME_BIN=/usr/bin/chromium-browser
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
@@ -46,8 +46,8 @@ WORKDIR /app/terminator
 
 # Create a startup script
 RUN echo '#!/bin/bash\n\
-echo "Starting Terminator..."\n\
-echo "Terminator will be available at http://localhost:9005 (container port 8080)"\n\
+echo "Starting Autopilot..."\n\
+echo "Autopilot will be available at http://localhost:9005 (container port 8080)"\n\
 echo "Configure your AI provider by editing /app/terminator/.env"\n\
 echo ""\n\
 cd /app/terminator\n\
@@ -60,7 +60,7 @@ RUN mkdir -p /config/Desktop && \
     echo '[Desktop Entry]\n\
 Version=1.0\n\
 Type=Application\n\
-Name=Terminator\n\
+Name=Autopilot\n\
 Comment=AI-powered research and automation platform\n\
 Exec=/app/start-terminator.sh\n\
 Icon=applications-internet\n\
@@ -73,4 +73,4 @@ Categories=Network;WebBrowser;\n\
 EXPOSE 6901
 
 # The base image will handle the desktop environment
-# Users can manually start Terminator from the desktop or terminal
+# Users can manually start Autopilot from the desktop or terminal
