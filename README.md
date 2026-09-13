@@ -36,8 +36,18 @@
     <img src="https://img.shields.io/badge/AI%20SDK-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel AI SDK">
     <img src="https://img.shields.io/badge/Zod-3E67B1?style=flat-square&logo=zod&logoColor=white" alt="Zod">
   </p>
-
+  <p align="center">
+    <a href="https://youtu.be/WiRXFDvbIRY"><img src="https://img.shields.io/badge/▶%20Watch%20Demo-YouTube-red?style=for-the-badge&logo=youtube" alt="Watch Demo"></a>
+    <a href="https://drive.google.com/file/d/1_7yLHik7F-JG5omKVGNYoqdePFF-a9ur/view"><img src="https://img.shields.io/badge/📊%20Presentation-Slides-blue?style=for-the-badge&logo=google-drive" alt="Presentation Slides"></a>
+  </p>
 </div>
+
+---
+
+## 🔗 Links
+
+- **🎬 Demo video:** [https://youtu.be/WiRXFDvbIRY](https://youtu.be/WiRXFDvbIRY)
+- **📊 Presentation slides:** [Google Drive](https://drive.google.com/file/d/1_7yLHik7F-JG5omKVGNYoqdePFF-a9ur/view)
 
 ---
 
@@ -653,6 +663,16 @@ Full reference: [docs/API_REFERENCE.md](docs/API_REFERENCE.md
 - RAG / knowledge-graph backend
 - One-click "Ship" flow: agent → PR/artifact → deployed demo
 - Recording: playback for full browser sessions
+
+---
+
+## 🔗 Links
+
+- **🎬 Demo video:** [https://youtu.be/WiRXFDvbIRY](https://youtu.be/WiRXFDvbIRY)
+- **📊 Presentation slides:** [Google Drive](https://drive.google.com/file/d/1_7yLHik7F-JG5omKVGNYoqdePFF-a9ur/view)
+- **Repository:** [github.com/robloxsagax-web/Autopilot](https://github.com/robloxsagax-web/Autopilot)
+- **License:** [MIT](https://github.com/robloxsagax-web/Autopilot/blob/master/LICENSE)
+- **🖥️ Live demo:** **Local-first by design.** ...
 
 ---
 
