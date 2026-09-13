@@ -130,6 +130,16 @@ We kept watching the same pattern repeat:brilliant ideas stalled at the gap betw
 
 ---
 
+## 🎬 Try These Prompts
+
+| # | Prompt | What you'll see |
+|---|---|---|
+| 1 | "Write a Python script that plots a sine wave and saves it as a PNG." | CodeAct runs real Python |
+| 2 | "Research the latest MCP spec changes and write a cited report." | Plan → search → report |
+| 3 | "Open Wikipedia, search for 'Model Context Protocol', extract the summary." | Vision MCP browser |
+
+---
+
 ## 🛠️ How We Built It — The Engineering Story
 
 Building a platform where an LLM can safely *drive a computer* meant solving eight hard engineering problems. Here's the honest breakdown:
